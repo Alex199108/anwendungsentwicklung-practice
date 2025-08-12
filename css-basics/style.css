@@ -104,6 +104,27 @@ footer {
   section { padding: 14px; }       /* Mai puțin padding în carduri pentru spațiu eficient */
 }
 
+/* ===== efect pentru imagine + caption ===== */
+figure{
+  margin: 0;
+  text-align: center;
+}
+
+figure img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+figure img:hover{
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+figcaption{
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 6px;
+}
+
 /* ================= DARK MODE ================= */
 @media (prefers-color-scheme: dark) { /* Se activează automat dacă utilizatorul are dark mode */
   body { background: #111; color: #e6e6e6; }       /* Fundal foarte închis, text gri deschis */
