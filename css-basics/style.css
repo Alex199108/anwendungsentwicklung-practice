@@ -1,26 +1,13 @@
-:root { --font: system-ui, Segoe UI, Roboto, Arial, sans-serif; --maxw: 900px; --space: 16px; }
-*{box-sizing:border-box} html,body{margin:0;padding:0}
-body{font-family:var(--font);line-height:1.6;background:#fafafa;color:#222}
-header,main,footer{max-width:var(--maxw);margin:0 auto;padding:calc(var(--space)*1.25)}
-h1,h2{margin:0 0 var(--space)}
-nav a{margin-right:8px;text-decoration:none}
-nav a:hover{text-decoration:underline}
-section{background:#fff;padding:var(--space);border-radius:12px;box-shadow:0 1px 8px rgba(0,0,0,.06)}
-footer{color:#666;margin-top:24px}
 :root {
   --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --maxw: 900px;
   --space: 16px;
+  --brand: #4f46e5;   /* culoare principală */
+  --brand-weak: #eef2ff;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 
 body {
   font-family: var(--font);
@@ -29,40 +16,63 @@ body {
   background: #f5f5f5;
 }
 
-header, main, footer {
+/* HEADER vizibil */
+header {
+  max-width: none;
+  margin: 0;
+  padding: 32px 0;
+  background: linear-gradient(180deg, var(--brand), #6d28d9);
+  color: white;
+}
+header > div {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 calc(var(--space) * 1.25);
+}
+header h1 {
+  margin: 0 0 10px;
+  letter-spacing: 0.3px;
+}
+
+/* NAV ca “butoane” */
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--brand);
+  background: white;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-right: 8px;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+nav a:hover { background: var(--brand-weak); }
+
+/* CONȚINUT */
+main, footer {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: calc(var(--space) * 1.25);
 }
 
-h1, h2 {
-  margin: 0 0 var(--space);
-}
-
-nav a {
-  text-decoration: none;
-  margin-right: 8px;
-  color: #007acc;
-}
-nav a:hover {
-  text-decoration: underline;
-}
+h2 { margin: 0 0 var(--space); }
 
 section {
   background: white;
-  padding: var(--space);
-  border-radius: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  padding: calc(var(--space) * 1.1);
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
   margin-bottom: var(--space);
+  border: 1px solid #f0f0f0;
 }
 
-img {
-  max-width: 100%;
-  border-radius: 8px;
-}
+img { max-width: 100%; border-radius: 8px; }
 
 footer {
   color: #666;
   font-size: 0.9rem;
   text-align: center;
+  border-top: 1px solid #eee;
+  margin-top: 24px;
+  padding-top: 16px;
 }
