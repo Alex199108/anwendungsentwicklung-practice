@@ -1,60 +1,93 @@
-<!doctype html>
-<html lang="ro">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pagina mea – Alex</title>
-  <link rel="stylesheet" href="../css-basics/style.css" />
+<!doctype html> <!-- declară HTML5; le spune browserelor ce standard să folosească -->
+<html lang="ro"> <!-- limba documentului (ajută SEO, screen readere) -->
+<head> <!-- metadate și resurse externe (nu conținut vizibil) -->
+  <meta charset="utf-8" /> <!-- set de caractere; permite diacritice fără probleme -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> <!-- face layout-ul corect pe mobil (1:1 px) -->
+  <title>Pagina mea – Alex</title> <!-- titlul din tabul browserului -->
+  <link rel="stylesheet" href="../css-basics/style.css" /> <!-- leagă fișierul CSS; calea relativă urcă un folder și intră în css-basics -->
 </head>
-<body>
-  <header>
-  <div>
-    <h1>Bun venit pe pagina mea!</h1>
-    <nav>
-      <a href="../html-basics/index.html">HTML</a> |
-      <a href="../css-basics/index.html">CSS</a> |
-      <a href="../projects/index.html">Proiecte</a>
-    </nav>
-  </div>
+
+<body> <!-- tot ce e vizibil pe pagină -->
+  <!-- HEADER: bandă sus cu titlu + meniu -->
+  <header> <!-- element semantic: zona de început a paginii -->
+    <div> <!-- container interior ca să limităm lățimea cu CSS (max-width) și să centrăm conținutul -->
+      <h1>Bun venit pe pagina mea!</h1> <!-- titlul principal; unic pe pagină pentru SEO și accesibilitate -->
+      <nav> <!-- navigație principală -->
+        <a href="../html-basics/index.html">HTML</a> <!-- link intern; relativ la acest fișier -->
+        <a href="../css-basics/index.html">CSS</a> <!-- butoanele devin „pastile” prin CSS -->
+        <a href="../projects/index.html">Proiecte</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Despre mine</h2>
-      <p>Sunt Alex și urmez specializarea <em>Anwendungsentwicklung</em>. Aici exersez HTML.</p>
+  <!-- MAIN: conținutul central al paginii -->
+  <main> <!-- element semantic: conținutul de bază (unic pe pagină) -->
+
+    <!-- secțiune 1: despre -->
+    <section aria-labelledby="sec-despre"> <!-- section = bloc logic de conținut; aria-labelledby leagă cu h2 pentru accesibilitate -->
+      <h2 id="sec-despre">Despre mine</h2> <!-- h2: subtitlu; ordinea corectă e h1>h2>h3... -->
+      <p>
+        Sunt Alex și urmez specializarea <em>Anwendungsentwicklung</em>. <!-- <em> pune accent semantic (italic) -->
+        Aici exersez HTML.
+      </p>
     </section>
 
-    <section>
-      <h2>Hobby-uri</h2>
-      <ul>
+    <!-- secțiune 2: hobby-uri -->
+    <section aria-labelledby="sec-hobby">
+      <h2 id="sec-hobby">Hobby-uri</h2>
+      <ul> <!-- listă neordonată (bullets) pentru item-uri fără ordine strictă -->
         <li>Programare</li>
         <li>Gaming</li>
         <li>Fitness</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Link-uri utile</h2>
-      <ol>
-        <li><a href="https://github.com" target="_blank" rel="noopener">Profilul meu GitHub</a></li>
-        <li><a href="https://developer.mozilla.org" target="_blank" rel="noopener">MDN Web Docs</a></li>
+    <!-- secțiune 3: link-uri utile -->
+    <section aria-labelledby="sec-linkuri">
+      <h2 id="sec-linkuri">Link-uri utile</h2>
+      <ol> <!-- listă ordonată (numerotată) când ordinea e relevantă sau vrei să numerotezi -->
+        <li>
+          <a href="https://github.com" target="_blank" rel="noopener">
+            Profilul meu GitHub
+          </a>
+          <!-- target="_blank" deschide în tab nou; rel="noopener" e pentru securitate/perf. -->
+        </li>
+        <li>
+          <a href="https://developer.mozilla.org" target="_blank" rel="noopener">
+            MDN Web Docs
+          </a>
+        </li>
       </ol>
     </section>
 
-    <section>
-      <h2>Poza mea preferată</h2>
-      <img src="https://placekitten.com/400/300" alt="O pisică drăguță (imagine de test)">
+    <!-- secțiune 4: imagine -->
+    <section aria-labelledby="sec-poza">
+      <h2 id="sec-poza">Poza mea preferată</h2>
+      <img
+        src="https://placekitten.com/400/300"  <!-- sursa imaginii (aici un placeholder online) -->
+        alt="O pisică drăguță (imagine de test)"  <!-- descriere pentru screen readere / când nu se poate încărca -->
+        width="400" height="300"  <!-- dimensiuni intrinseci (ajută layout-ul să nu „sară” la încărcare) -->
+      />
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p><a href="mailto:alex@example.com">alex@example.com</a></p>
+    <!-- secțiune 5: contact -->
+    <section aria-labelledby="sec-contact">
+      <h2 id="sec-contact">Contact</h2>
+      <p>
+        <a href="mailto:alex@example.com">alex@example.com</a> <!-- mailto: deschide clientul de email -->
+      </p>
     </section>
+
   </main>
 
+  <!-- FOOTER: zona de jos (drepturi, info secundare) -->
   <footer>
-    <small>&copy; <span id="y"></span> Alex</small>
+    <small>&copy; <span id="y"></span> Alex</small> <!-- &copy; = simbol ©; <small> = importanță secundară -->
   </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <script>
+    // JS minim: setează anul curent în footer ca să nu-l actualizezi manual
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
