@@ -2,7 +2,7 @@
   --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; /* Variabilă globală pentru fonturi: lista fallback asigură afișare corectă pe orice sistem */
   --maxw: 900px;                 /* Lățimea maximă a conținutului – 900px e optim pentru lizibilitate pe desktop */
   --space: 16px;                  /* Unitate de bază pentru spațiere (padding, margin) – 16px este standard web */
-  --brand: #4f46e5;               /* Culoare principală (brand) – violet puternic, bun pentru contrast */
+  --brand: #004e92;               /* Culoare principală (brand) – violet puternic, bun pentru contrast */
   --brand-weak: #eef2ff;          /* Versiune foarte deschisă a culorii brand, pentru hover/evidențiere subtilă */
 }
 
@@ -27,7 +27,7 @@ header {
   max-width: none;                /* Header-ul se întinde pe toată lățimea ecranului */
   margin: 0;                      /* Elimină marginile */
   padding: 32px 0;                 /* Spațiu sus/jos 32px pentru „respirație” */
-    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradient vertical din culoarea brand în violet mai închis */
+    background: linear-gradient(180deg, var(--brand), #006c6ff); /* Gradient vertical din culoarea brand în violet mai închis */
   color: white;                   /* Text alb pentru contrast pe fundal închis */
 }
 
