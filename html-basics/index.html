@@ -3,28 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HTML Basics – Alex</title>
+  <title>Pagina mea – Alex</title>
   <link rel="stylesheet" href="../css-basics/style.css" />
 </head>
 <body>
   <header>
-    <h1>Bun venit, Alex</h1>
+    <h1>Bun venit pe pagina mea!</h1>
     <nav>
       <a href="../html-basics/index.html">HTML</a> |
       <a href="../css-basics/index.html">CSS</a> |
       <a href="../projects/index.html">Proiecte</a>
     </nav>
   </header>
+
   <main>
     <section>
       <h2>Despre mine</h2>
-      <p>Aici exersez HTML.</p>
+      <p>Sunt Alex și urmez specializarea <em>Anwendungsentwicklung</em>. Aici exersez HTML.</p>
+    </section>
+
+    <section>
+      <h2>Hobby-uri</h2>
       <ul>
-        <li>Structură corectă</li><li>Semantică</li><li>Accesibilitate</li>
+        <li>Programare</li>
+        <li>Gaming</li>
+        <li>Fitness</li>
       </ul>
     </section>
+
+    <section>
+      <h2>Link-uri utile</h2>
+      <ol>
+        <li><a href="https://github.com" target="_blank" rel="noopener">Profilul meu GitHub</a></li>
+        <li><a href="https://developer.mozilla.org" target="_blank" rel="noopener">MDN Web Docs</a></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Poza mea preferată</h2>
+      <img src="https://placekitten.com/400/300" alt="O pisică drăguță (imagine de test)">
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p><a href="mailto:alex@example.com">alex@example.com</a></p>
+    </section>
   </main>
-  <footer><small>&copy; <span id="y"></span> Alex</small></footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
+  <footer>
+    <small>&copy; <span id="y"></span> Alex</small>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
