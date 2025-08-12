@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HTML Basics – Alex</title>
+  <link rel="stylesheet" href="../css-basics/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Bun venit, Alex</h1>
+    <nav>
+      <a href="../html-basics/index.html">HTML</a> |
+      <a href="../css-basics/index.html">CSS</a> |
+      <a href="../projects/index.html">Proiecte</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Despre mine</h2>
+      <p>Aici exersez HTML.</p>
+      <ul>
+        <li>Structură corectă</li><li>Semantică</li><li>Accesibilitate</li>
+      </ul>
+    </section>
+  </main>
+  <footer><small>&copy; <span id="y"></span> Alex</small></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
