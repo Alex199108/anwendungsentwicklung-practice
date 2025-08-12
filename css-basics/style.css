@@ -27,7 +27,7 @@ header {
   max-width: none;                /* Header-ul se întinde pe toată lățimea ecranului */
   margin: 0;                      /* Elimină marginile */
   padding: 32px 0;                 /* Spațiu sus/jos 32px pentru „respirație” */
-  background: linear-gradient(180deg, var(--brand), #6d28d9); /* Gradient vertical din culoarea brand în violet mai închis */
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradient vertical din culoarea brand în violet mai închis */
   color: white;                   /* Text alb pentru contrast pe fundal închis */
 }
 
