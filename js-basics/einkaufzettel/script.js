@@ -27,8 +27,14 @@ addButton.addEventListener("click", function(){
     //text nehmen von Input
     //an shopping-list mit appendchild
     const li = document.createElement("li");
-    li.textContent = `Name artikel: ${Artikel} category:${filter}`;
+    //li.textContent = `Name artikel: ${Artikel} category:${filter}`;                   try to improve layout on li for category
+    const artikelName = document.createElement ("span");
+    artikelName.classList.add("item-name");
+    const artikelCategory = document.createElement("span");
+    artikelCategory.classList.add("item-category"); 
     const eraseButton = document.createElement("button");
+    artikelName.textContent = Artikel;
+    artikelCategory.textContent = filter;
     eraseButton.textContent = "x";
     eraseButton.classList.add("delete-btn");
     eraseButton.addEventListener("click", function(){
@@ -36,7 +42,9 @@ addButton.addEventListener("click", function(){
         // aktualisierung updateStatus
         updateStatus();
     })
-    li.appendChild(eraseButton)
+    li.appendChild(artikelName);
+    li.appendChild(artikelCategory);
+    li.appendChild(eraseButton);
     shoppingList.appendChild(li);
     inputArtikel.value = "";
     updateStatus();

@@ -91,11 +91,27 @@ body{
     text-align: center;
     margin-top: 10px;
 }
+.item-name{
+    font-weight: 500;
+    flex: 1;
+    
+}
+
+.item-category{
+    background-color: #333;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    color: rgb(214, 213, 213);
+    border-radius: 5px;
+}
 
 
 .delete-btn{
    background-color: #7a1010;
-   color: white;
+   color: rgb(214, 213, 213);
    border: none;
    border-radius: 4px;
    padding: 2px 8px;
@@ -129,4 +145,6 @@ body{
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     font-size: 14px;
+    font-weight: bold;
+    color: rgb(214, 213, 213);
 }
