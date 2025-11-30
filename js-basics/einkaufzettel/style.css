@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: rgb(34, 33, 33);
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: rgba(58, 57, 57, 0.4) 0px 30px 90px;
+}
+
+.formEinkauf{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.formEinkauf input{
+    width: 100%;
+    padding: 6px;
+    flex: 1;
+}
+#category-select{
+    padding: 6px;
+    border: none;
+    border-radius: 3px;
+}
+/*
+.addButton{
+    padding: 6px;
+    width: 100px;
+    margin: auto;
+    margin-top: 10px;
+    
+}
+*/
+.addButton{
+    margin-top: 10px;
+    align-self: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: 0.2s ease;
+    box-shadow: 0 0 15px rgba(0, 110, 255, 0.2), 
+    inset 0 0 8px rgba(0, 110, 255, 0.3);
+}
+.addButton::before{
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, #006eff, #00c8ff, #006eff);
+    filter: blur(8px);
+    opacity: 0.5;
+    z-index: -1;
+    
+}
+
+.addButton:hover{
+    box-shadow: 0 0 25px rgba(0,110, 255, 0.6)
+    inset 0 0 12px rgba(0, 110, 255, 0.5);
+    border-color: #0077ff;
+}
+.statusText{
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.delete-btn{
+   background-color: #7a1010;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   padding: 2px 8px;
+   font-size: 12px;
+   cursor: pointer;
+   transition: 0.2s ease;
+}
+
+
+.delete-btn:hover{
+    background-color: #c51a1a;
+    transform: scale(1.05);
+}
+
+#shopping-list{
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#shopping-list li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 6px 10px;
+    background-color: #222;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    font-size: 14px;
+}
