@@ -5,6 +5,12 @@ const addButton = document.querySelector("#add-button");
 const shoppingList = document.querySelector("#shopping-list");
 const statusText = document.querySelector("#status-text");
 const filterList = document.querySelector("#category-select");
+const map = {
+    food: 0,
+    hygiene:1,
+    clothing:2,
+    electro:3
+};
 
 
 console.log(inputArtikel, addButton, shoppingList, statusText);
@@ -40,11 +46,23 @@ addButton.addEventListener("click", function(){
     eraseButton.addEventListener("click", function(){
         li.remove();
         // aktualisierung updateStatus
-        updateStatus();
+        updateStatus(); 
+   
     })
-    li.appendChild(artikelName);
+     li.appendChild(artikelName);
     li.appendChild(artikelCategory);
     li.appendChild(eraseButton);
+    for(let i = 0;i<shoppingList.children.length;i++){
+        const existinLi = shoppingList.children[i];
+        const existingCategoryText = existinLi.querySelector(".item-category").textContent;
+        const existingCategory =existingCategoryText.toLowerCase();
+       if(map[existingCategory]>map[filter]){
+        shoppingList.insertBefore(li, existinLi);
+        return;
+       }
+        
+    }
+
     shoppingList.appendChild(li);
     inputArtikel.value = "";
     updateStatus();
