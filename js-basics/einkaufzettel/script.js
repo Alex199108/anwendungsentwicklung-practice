@@ -5,6 +5,7 @@ const addButton = document.querySelector("#add-button");
 const shoppingList = document.querySelector("#shopping-list");
 const statusText = document.querySelector("#status-text");
 const filterList = document.querySelector("#category-select");
+const deletedList = document.querySelector("#geloeschte-artikel");
 const map = {
     food: 0,
     hygiene:1,
@@ -44,7 +45,11 @@ addButton.addEventListener("click", function(){
     eraseButton.textContent = "x";
     eraseButton.classList.add("delete-btn");
     eraseButton.addEventListener("click", function(){
-        li.remove();
+        //li.remove();
+        // neue implementierung...sortierung DeletedItems in DeletedList
+        const deletedCategoryTxt = li.querySelector(".item-category").textContent;
+        deletedCategory=  deletedCategoryTxt.toLowerCase();
+        deletedList.appendChild(li);
         // aktualisierung updateStatus
         updateStatus(); 
    
