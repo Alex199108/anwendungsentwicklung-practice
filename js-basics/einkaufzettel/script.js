@@ -5,6 +5,7 @@ const addButton = document.querySelector("#add-button");
 const shoppingList = document.querySelector("#shopping-list");
 const statusText = document.querySelector("#status-text");
 const filterList = document.querySelector("#category-select");
+const deletedTitle = document.querySelector("#deleted-title");
 const deletedList = document.querySelector("#geloeschte-artikel");
 const map = {
     food: 0,
@@ -16,6 +17,7 @@ const map = {
 
 console.log(inputArtikel, addButton, shoppingList, statusText);
 updateStatus();
+updateDeletedTitle();
 //addButton logik
 
 addButton.addEventListener("click", function(){
@@ -34,20 +36,19 @@ addButton.addEventListener("click", function(){
     //text nehmen von Input
     //an shopping-list mit appendchild
     const li = document.createElement("li");
-    //li.textContent = `Name artikel: ${Artikel} category:${filter}`;                   try to improve layout on li for category
+    
     const artikelName = document.createElement ("span");
     artikelName.classList.add("item-name");
     const artikelCategory = document.createElement("span");
     artikelCategory.classList.add("item-category"); 
-    //const eraseButton = document.createElement("button"); checkbox stadt deletButton
+   //----("button"); checkbox stadt deletButton----
     const doneCheckbox = document.createElement("input");
     doneCheckbox.type = "checkbox";
     doneCheckbox.classList.add("done-checkbox");
 
     artikelName.textContent = Artikel;
     artikelCategory.textContent = filter;
-   // eraseButton.textContent = "x";
-    //eraseButton.classList.add("delete-btn");
+  // Checbox fuer listen... checkbox on = 
     doneCheckbox.addEventListener("change", function(){
         const categoryText = li.querySelector(".item-category").textContent;
         if(doneCheckbox.checked){
@@ -56,46 +57,23 @@ addButton.addEventListener("click", function(){
             insertSorted(shoppingList,li,categoryText);
         }
         updateStatus();
-        //li.remove();
-        // neue implementierung...sortierung DeletedItems in DeletedList
-        /*const deletedCategoryTxt = li.querySelector(".item-category").textContent;
-        const deletedCategory =  deletedCategoryTxt.toLowerCase();
-        for(let i = 0;i<deletedList.children.length;i++){
-            const existingDeletedLi = deletedList.children[i];
-            const existingDeletedTxt = existingDeletedLi.querySelector(".item-category").textContent;
-            const existingDeletedCategory = existingDeletedTxt.toLowerCase();
-            if(map[existingDeletedCategory]>map[deletedCategory]){
-            deletedList.insertBefore(li, existingDeletedLi);
-            updateStatus();
-            return;
-        }
-        }
-
+        updateDeletedTitle();
         
-        deletedList.appendChild(li);
-        // aktualisierung updateStatus
-        updateStatus();*/ 
+       
+        // neue implementierung...sortierung 
    
     });
      li.appendChild(artikelName);
     li.appendChild(artikelCategory);
     li.appendChild(doneCheckbox);
-   /* for(let i = 0;i<shoppingList.children.length;i++){
-        const existinLi = shoppingList.children[i];
-        const existingCategoryText = existinLi.querySelector(".item-category").textContent;
-        const existingCategory =existingCategoryText.toLowerCase();
-       if(map[existingCategory]>map[filter]){
-        shoppingList.insertBefore(li, existinLi);
-        return;
-       }
-        
-    }*/
+   
    
     insertSorted(shoppingList,li,filter);
    
-    //shoppingList.appendChild(li);
+    
     inputArtikel.value = "";
     updateStatus();
+    updateDeletedTitle();
     
 });
 
@@ -106,6 +84,13 @@ function updateStatus(){
     }else{
         statusText.textContent = count +  " Artikel auf der Liste"
     }
+}
+function updateDeletedTitle(){
+    if(deletedList.children.length === 0){
+        deletedTitle.style.display = "none"
+    }else{
+        deletedTitle.style.display = "block"
+    };
 }
 function insertSorted(targetList, li, category){
     const categoryLower = category.toLowerCase();
