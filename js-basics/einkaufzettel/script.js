@@ -39,25 +39,48 @@ addButton.addEventListener("click", function(){
     artikelName.classList.add("item-name");
     const artikelCategory = document.createElement("span");
     artikelCategory.classList.add("item-category"); 
-    const eraseButton = document.createElement("button");
+    //const eraseButton = document.createElement("button"); checkbox stadt deletButton
+    const doneCheckbox = document.createElement("input");
+    doneCheckbox.type = "checkbox";
+    doneCheckbox.classList.add("done-checkbox");
+
     artikelName.textContent = Artikel;
     artikelCategory.textContent = filter;
-    eraseButton.textContent = "x";
-    eraseButton.classList.add("delete-btn");
-    eraseButton.addEventListener("click", function(){
+   // eraseButton.textContent = "x";
+    //eraseButton.classList.add("delete-btn");
+    doneCheckbox.addEventListener("change", function(){
+        const categoryText = li.querySelector(".item-category").textContent;
+        if(doneCheckbox.checked){
+            insertSorted(deletedList,li,categoryText);
+        }else{
+            insertSorted(shoppingList,li,categoryText);
+        }
+        updateStatus();
         //li.remove();
         // neue implementierung...sortierung DeletedItems in DeletedList
-        const deletedCategoryTxt = li.querySelector(".item-category").textContent;
-        deletedCategory=  deletedCategoryTxt.toLowerCase();
+        /*const deletedCategoryTxt = li.querySelector(".item-category").textContent;
+        const deletedCategory =  deletedCategoryTxt.toLowerCase();
+        for(let i = 0;i<deletedList.children.length;i++){
+            const existingDeletedLi = deletedList.children[i];
+            const existingDeletedTxt = existingDeletedLi.querySelector(".item-category").textContent;
+            const existingDeletedCategory = existingDeletedTxt.toLowerCase();
+            if(map[existingDeletedCategory]>map[deletedCategory]){
+            deletedList.insertBefore(li, existingDeletedLi);
+            updateStatus();
+            return;
+        }
+        }
+
+        
         deletedList.appendChild(li);
         // aktualisierung updateStatus
-        updateStatus(); 
+        updateStatus();*/ 
    
-    })
+    });
      li.appendChild(artikelName);
     li.appendChild(artikelCategory);
-    li.appendChild(eraseButton);
-    for(let i = 0;i<shoppingList.children.length;i++){
+    li.appendChild(doneCheckbox);
+   /* for(let i = 0;i<shoppingList.children.length;i++){
         const existinLi = shoppingList.children[i];
         const existingCategoryText = existinLi.querySelector(".item-category").textContent;
         const existingCategory =existingCategoryText.toLowerCase();
@@ -66,13 +89,15 @@ addButton.addEventListener("click", function(){
         return;
        }
         
-    }
-
-    shoppingList.appendChild(li);
+    }*/
+   
+    insertSorted(shoppingList,li,filter);
+   
+    //shoppingList.appendChild(li);
     inputArtikel.value = "";
     updateStatus();
     
-})
+});
 
 function updateStatus(){
     const count = shoppingList.children.length
@@ -82,3 +107,20 @@ function updateStatus(){
         statusText.textContent = count +  " Artikel auf der Liste"
     }
 }
+function insertSorted(targetList, li, category){
+    const categoryLower = category.toLowerCase();
+    const newRank = map[categoryLower];
+    for(let i = 0;i<targetList.children.length;i++){
+        const existinLi = targetList.children[i];
+        const existingCategoryText = existinLi.querySelector(".item-category").textContent;
+        const existingCategoryLower = existingCategoryText.toLowerCase();
+        const existingRank = map[existingCategoryLower];
+        if(existingRank>newRank){
+        targetList.insertBefore(li, existinLi);
+        return;
+    }
+    }
+    
+    targetList.appendChild(li);
+
+};
