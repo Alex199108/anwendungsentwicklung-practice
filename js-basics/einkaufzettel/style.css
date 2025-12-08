@@ -221,3 +221,21 @@ body::before{
     font-weight: bold;
     color: rgb(214, 213, 213);
 }
+
+body.dark-mode {
+    background-image: none;
+    background: #050509;
+}
+
+body.dark-mode::before{
+    background: linear-gradient(
+        to bottom right,
+        rgba(0,0,0, 0.9),
+        rgba(0,0,0,1)
+    );
+};
+
+body.dark-mode .container {
+    background: rgba(15,15,20,0.95);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+}

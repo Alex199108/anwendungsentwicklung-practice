@@ -13,6 +13,7 @@ const map = {
     clothing:2,
     electro:3
 };
+const themeToggle = document.querySelector("#theme-toggle"); //neue Funktion Dark-Theme 
 
 
 console.log(inputArtikel, addButton, shoppingList, statusText);
@@ -109,3 +110,14 @@ function insertSorted(targetList, li, category){
     targetList.appendChild(li);
 
 };
+
+themeToggle.addEventListener('click', function(){
+    // wechseln boddyClass
+    document.body.classList.toggle("dark-mode");
+
+    // verifizieren ob wir in dark-mode oder light
+    const isDark = document.body.classList.contains("dark-mode");
+
+    //wechseln theme button Icon
+    themeToggle.textContent = isDark ? "☀" : "☾";
+});
